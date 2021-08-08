@@ -1,4 +1,4 @@
-# $\mathrm{SMolSAT.py}$: Soft-Matter Molecular Simulation Analysis Toolkit
+# SMolSAT.py: Soft-Matter Molecular Simulation Analysis Toolkit
 
 ### Install Requirement
 * cmake 3.12
