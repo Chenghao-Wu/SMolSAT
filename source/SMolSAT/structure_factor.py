@@ -14,14 +14,17 @@ import mpltex
 
 
 class structure_factor:
-    def __init__(self,system=None,plane=None,max_length_scale=None,timescheme=-1,trajs=None,listname=None,out=None):
+    def __init__(self,system=None,plane=None,max_length_scale=None,timescheme=-1,trajs=None,listname=None,listname1=None,listname2=None,out=None):
         self.system=system
         self.trajs=trajs
         self.listname=listname
         self.out=out
 
         self.analysis=Structure_Factor(system,plane,max_length_scale,timescheme)
-        self.analysis.run(trajs,listname)
+        if listname!=None:
+            self.analysis.run(trajs,listname)
+        else:
+            self.analysis.run(trajs,listname1,listname2)
         self.analysis.write(out)
         self.read()
 
