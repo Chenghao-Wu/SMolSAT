@@ -3,7 +3,10 @@
 ### Install Requirement
 * cmake 3.12
 * g++ 7.0 
-
+* python 3.x+
+   * numpy; matplotlib; mpltex
+  
+  
 ### How to install?
 ```bash
 cd source
