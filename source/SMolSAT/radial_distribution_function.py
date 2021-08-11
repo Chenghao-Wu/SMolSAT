@@ -14,14 +14,17 @@ import mpltex
 
 
 class rdf:
-    def __init__(self,system=None,nbins=None,max_length_scale=None,timescheme=-1,trajs=None,listname=None,out=None):
+    def __init__(self,system=None,nbins=None,max_length_scale=None,timescheme=-1,trajs=None,listname=None,listname1=None,listname2=None,out=None):
         self.system=system
         self.trajs=trajs
         self.listname=listname
         self.out=out
-
+        
         self.analysis=Radial_Distribution_Function(system,nbins,timescheme,max_length_scale)
-        self.analysis.run(trajs,listname)
+        if listname!=None:
+            self.analysis.run(trajs,listname)
+        else:
+            self.analysis.run(trajs,listname1,listname2)
         self.analysis.write(out)
         self.read()
 
