@@ -458,7 +458,7 @@ void Structure_Factor::run(Trajectories cl,string listname1,string listname2)
 
   cout << "\nCalculating structure factor.\n";cout.flush();
   start = time(NULL);
-  analyze(cl.find_trajectorylist(listname1),cl.find_trajectorylist(listname1));
+  analyze(cl.find_trajectorylist(listname1),cl.find_trajectorylist(listname2));
   finish = time(NULL);
   cout << "\nCalculated structure factor in " << finish-start<<" seconds.\n";
 

@@ -8,6 +8,12 @@ set(INSTALL_PY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/SMolSAT)
 
 # find python environment
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
+#set(ANACONDA_PYTHON_DIR "/home/zwu/anaconda3")
+#set(_py_id "python3.8")
+#set(PYTHON_INCLUDE_DIR "${ANACONDA_PYTHON_DIR}/include/${_py_id}" CACHE INTERNAL "")
+#set(PYTHON_LIBRARY "${ANACONDA_PYTHON_DIR}/lib/lib${_py_id}${CMAKE_SHARED_LIBRARY_SUFFIX}" CACHE INTERNAL "")
+#set(PYTHON_INCLUDE_DIRS "${PYTHON_INCLUDE_DIR}")
+#set(PYTHON_LIBRARIES "${PYTHON_LIBRARY}")
 
 # add subdirectory of pybind11 and qvectors
 add_subdirectory(./extern/pybind11)

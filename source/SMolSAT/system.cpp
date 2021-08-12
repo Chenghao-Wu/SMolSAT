@@ -709,6 +709,7 @@ void System::read_custom(string xyzfilename)
 	 }
 
          n_typeii[type]++;		//increment count of atoms of this type
+         
        }
      }
    }

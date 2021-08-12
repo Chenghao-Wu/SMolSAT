@@ -26,7 +26,7 @@ Radial_Distribution_Function::Radial_Distribution_Function():Analysis_Onetime()
 
 
 
-Radial_Distribution_Function::Radial_Distribution_Function(std::shared_ptr<System> sys, int nbins, int timescheme, float maxdistance)
+Radial_Distribution_Function::Radial_Distribution_Function(std::shared_ptr<System> sys, int nbins, int timescheme, float maxdistance, bool is_inter)
 {
   int timeii, binii;
   float minboxsize;
@@ -220,10 +220,20 @@ void Radial_Distribution_Function::listkernel(Trajectory* current_trajectory, in
 void Radial_Distribution_Function::listkernel2(Trajectory* traj1, Trajectory* traj2,int timegapii,int thisii, int nextii)
 {
   float distance;
+  if(is_inter)
+  {
+  if(traj1->show_moleculeID()!=traj2->show_moleculeID())
+  {
+    distance=(traj2->show_coordinate(thisii)-(traj1->show_coordinate(thisii))).length_unwrapped(system->size());	//calculate shortest distance between two coordinates, taking into account periodic boundaries
+    bin(thisii,distance);
+  }
+  }
+  else{
   if(traj1!=traj2)
   {
     distance=(traj2->show_coordinate(thisii)-(traj1->show_coordinate(thisii))).length_unwrapped(system->size());	//calculate shortest distance between two coordinates, taking into account periodic boundaries
     bin(thisii,distance);
+  }
   }
 }
 
@@ -422,7 +432,7 @@ void Radial_Distribution_Function::run(Trajectories cl,string listname1,string l
 {
   cout << "\nCalculating radial distribution function.\n";cout.flush();
   start = time(NULL);
-  analyze(cl.find_trajectorylist(listname1),cl.find_trajectorylist(listname1));
+  analyze(cl.find_trajectorylist(listname1),cl.find_trajectorylist(listname2));
   finish = time(NULL);
   cout << "\nCalculated radial distribution function in " << finish-start<<" seconds.\n";
 
@@ -431,7 +441,7 @@ void Radial_Distribution_Function::run(Trajectories cl,string listname1,string l
  void export_Radial_Distribution_Function(py::module& m)
     {
     py::class_<Radial_Distribution_Function, std::shared_ptr<Radial_Distribution_Function> >(m,"Radial_Distribution_Function",py::base<Analysis_Base>())
-    .def(py::init< std::shared_ptr<System>, int, int, float >())
+    .def(py::init< std::shared_ptr<System>, int, int, float, bool >())
     //.def("analyze", static_cast<void (Mean_Square_Displacement::*)(Trajectory_List* )> (&Mean_Square_Displacement::analyze))
     .def("run",static_cast<void (Radial_Distribution_Function::*)(Trajectories, string )> (&Radial_Distribution_Function::run))
     .def("run",static_cast<void (Radial_Distribution_Function::*)(Trajectories, string, string )> (&Radial_Distribution_Function::run))

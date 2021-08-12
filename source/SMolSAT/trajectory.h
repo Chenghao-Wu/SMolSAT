@@ -27,7 +27,7 @@ class PYBIND11_EXPORT Trajectory
     int n_timesteps;		//number of timesteps in trajectories (same for all trajectories)
 
     int type;			//type of trajectory
-    
+    int moleculeID=-1;    // unique ID of molecule, inheritance to the atom_trajectory
     int trajectory_ID;		//unique ID of trajectory
     float mass;			//mass associated with trajectory
 
@@ -48,6 +48,7 @@ class PYBIND11_EXPORT Trajectory
     
     virtual void set(int,int,float m=1);		//change number of timesteps and reallocate memory accordingly
     virtual void set(int,int,Coordinate*,int);	//method to fully define object, including coordinate list
+    virtual int show_moleculeID()const{return moleculeID;};
     
     void set(const Coordinate &, int);		//method to set single coordinate in coordinate list
     void set_unwrapped(const Coordinate &, int);

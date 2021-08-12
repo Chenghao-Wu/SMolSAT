@@ -21,12 +21,12 @@ class Radial_Distribution_Function: public Analysis_Onetime
     float * mean_rdf;
     int * n_atoms_i;
     int * n_atoms_j;
-    
+    bool is_inter;
     
   public:
     Radial_Distribution_Function();			//default constructor    
     Radial_Distribution_Function(const Radial_Distribution_Function &);		//copy constructor
-    Radial_Distribution_Function(std::shared_ptr<System> sys, int nbins, int timescheme, float maxdistance=0);
+    Radial_Distribution_Function(std::shared_ptr<System> sys, int nbins, int timescheme, float maxdistance=0, bool is_inter=0);
     
     Radial_Distribution_Function operator = (const Radial_Distribution_Function &);	//assignment
     
