@@ -325,7 +325,7 @@ void Incoherent_Scattering_Function::write(string filename)const
   cout << "\nWriting to file " <<filename<<"."<<endl;cout.flush();
 
   /*Write first row - list of bin numbers*/
-  output << "Incoherent Scattering Function created by AMDAT v." << VERSION << "\n";
+  output << "Incoherent Scattering Function created by SMolDAT v." << VERSION << "\n";
   output << "\t";
   for(binii=first_bin_index;binii<=last_bin_index;binii++)
   {
@@ -354,7 +354,7 @@ void Incoherent_Scattering_Function::write(ofstream& output)const
   cout << "\nWriting to file."<<endl;
 
   /*Write first row - list of bin numbers*/
-  output << "Incoherent Scattering Function created by AMDAT v." << VERSION << "\n";
+  output << "Incoherent Scattering Function created by SMolDAT v." << VERSION << "\n";
   output << "\t";
   for(binii=first_bin_index;binii<=last_bin_index;binii++)
   {

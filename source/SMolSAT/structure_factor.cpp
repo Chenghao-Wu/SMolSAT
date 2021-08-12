@@ -400,7 +400,7 @@ void Structure_Factor::write(string filename)const
   cout << "\nWriting to file " <<filename<<".";cout.flush();
 
   /*Write first row - list of bin numbers*/
-  output << "Structure factor data created by AMDAT v." << VERSION << "\n";
+  output << "Structure factor data created by SMolDAT v." << VERSION << "\n";
   output << "Nominal_q\tMean_q\tStddev_q\tMean_qx\tMean_qy\tMean_qz\tS(q)\n";
   for(binii=0;binii<n_wavenumbers;binii++)
   {
@@ -422,7 +422,7 @@ void Structure_Factor::write(ofstream& output)const
   cout << "\nWriting to file.";
 
   /*Write first row - list of bin numbers*/
-  output << "Structure factor data created by AMDAT v." << VERSION << "\n";
+  output << "Structure factor data created by SMolDAT v." << VERSION << "\n";
   output << "Nominal_q\tMean_q\tStddev_q\tMean_qx\tMean_qy\tMean_qz\tS(q)\n";
   for(binii=0;binii<n_wavenumbers;binii++)
   {

@@ -185,7 +185,7 @@ void Mean_Square_Displacement::write(string filename)const
 
   ofstream output(filename.c_str());
 
-  output << "Mean square displacement data created by AMDAT v." << VERSION << "\n";
+  output << "Mean square displacement data created by SMolDAT v." << VERSION << "\n";
   for(timeii=0;timeii<n_times;timeii++)
   {
     output << timetable[timeii]<<"\t"<<msd[timeii]<<"\n";
@@ -199,7 +199,7 @@ void Mean_Square_Displacement::write(ofstream& output)const
 
   cout << "\nWriting msd to file.";
 
-  output << "Mean square displacement data created by AMDAT v." << VERSION << "\n";
+  output << "Mean square displacement data created by SMolDAT v." << VERSION << "\n";
   for(timeii=0;timeii<n_times;timeii++)
   {
     output << timetable[timeii]<<"\t"<<msd[timeii]<<"\n";

@@ -108,7 +108,7 @@ void Van_Hove_Self::write(string filename)const
   
   ofstream output (filename.c_str());		//open correlation file
   
-  output << "Van Hove Self Function created by AMDAT v." << VERSION << "\n"; 
+  output << "Van Hove Self Function created by SMolDAT v." << VERSION << "\n"; 
   output << n_bins << " bins\n";
   output << n_times << " times\n\n";
   
@@ -140,7 +140,7 @@ void Van_Hove_Self::write(ofstream& output)const
   int timeii;
   int binii;
   
-  output << "Van Hove Self Function created by AMDAT v." << VERSION << "\n"; 
+  output << "Van Hove Self Function created by SMolDAT v." << VERSION << "\n"; 
   output << n_bins << " bins\n";
   output << n_times << " times\n\n";
   

@@ -166,7 +166,7 @@ void RgTensor_Stats::write_rel_asphericity_dist(string filename)
   
   ofstream output(filename.c_str());
   cout << "Writing gyration tensor relative asphericity distribution to file " << filename << ".\n";                                                                                                      
-  output << "Gyration tensor data created by AMDAT v." << VERSION << "\n";  
+  output << "Gyration tensor data created by SMolDAT v." << VERSION << "\n";  
   
   times = system->displacement_times();
   
@@ -196,7 +196,7 @@ void RgTensor_Stats::write_gyration_rad_dist(string filename)
   
   ofstream output(filename.c_str());
   cout << "Writing trajectory gyration radius distribution to file " << filename << ".\n";                                                                                                      
-  output << "Gyration tensor data created by AMDAT v." << VERSION << "\n";  
+  output << "Gyration tensor data created by SMolDAT v." << VERSION << "\n";  
   
   times = system->displacement_times();
   
@@ -228,7 +228,7 @@ void RgTensor_Stats::write(string filename)const
   
   ofstream output(filename.c_str());
   cout << "Writing gyration tensor eigenvalues to file " << filename << ".\n";
-  output << "Gyration tensor data created by AMDAT v." << VERSION << "\n";  
+  output << "Gyration tensor data created by SMolDAT v." << VERSION << "\n";  
   
   times = system->displacement_times();
   
@@ -245,7 +245,7 @@ void RgTensor_Stats::write(ofstream& output)const
   float * times;
   
   cout << "Writing gyration tensor eigenvalues to file.\n";
-  output << "Gyration tensor data created by AMDAT v." << VERSION << "\n";  
+  output << "Gyration tensor data created by SMolDAT v." << VERSION << "\n";  
   
   times = system->displacement_times();
   
