@@ -1,5 +1,7 @@
 # SMolSAT.py: Soft-Matter Molecular Simulation Analysis Toolkit
 
+## [Documentation](https://zhenghaowu.notion.site/SMolSAT-py-ba41b0ef45404db6aa1ef6bb518af701)
+
 ### Install Requirement
 * cmake 3.12
 * g++ 7.0 
