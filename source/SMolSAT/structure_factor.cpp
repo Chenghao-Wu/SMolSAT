@@ -8,8 +8,6 @@
 #include <stdio.h>
 #include "version.h"
 #include "structure_factor.h"
-#include <omp.h>
-
 
 using namespace std;
 namespace py=pybind11;

@@ -2,7 +2,6 @@
 /*Written by Zhenghao Wu, modified from AMDAT written by David S. Simmons*/
 #include <fstream>
 #include <stdlib.h>
-#include <omp.h>
 
 #include "trajectory_list.h"
 #include "analysis_base.h"

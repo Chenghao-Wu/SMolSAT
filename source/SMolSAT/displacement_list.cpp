@@ -8,8 +8,6 @@
 #include "version.h"
 #include "static_trajectory_list.h"
 
-#include <omp.h>
-
 using namespace std;
 namespace py = pybind11;
 

@@ -4,8 +4,6 @@
 #include <math.h>
 #include <stdlib.h>
 #include <vector>
-#include <omp.h>
-
 #include "incoherent_scattering_function.h"
 #include "system.h"
 #include "version.h"

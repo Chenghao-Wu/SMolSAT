@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include "version.h"
 #include "multibody_list.h"
-#include <omp.h>
 #include "system.h"
 
 using namespace std;

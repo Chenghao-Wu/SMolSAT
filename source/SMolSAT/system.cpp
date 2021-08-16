@@ -10,7 +10,6 @@
 #include <string>
 #include <vector>
 #include <float.h>
-#include <omp.h>
 #include <stdexcept>
 
 #define CPLUSPLUS
