@@ -6,7 +6,7 @@
 * cmake 3.12
 * g++ 7.0 
 * python 3.x+
-   * numpy; matplotlib; mpltex
+   * numpy
   
   
 ### How to install?
@@ -115,12 +115,13 @@ e2e_acf=SMolSAT.baf(system=ss,plane="xyz",trajs=list_,listname="e2e",out="e2e_ac
 ### Analysis Methods
 1. gyration tensor
 2. end-to-end distance
-3. mean square displacement
-4. non-gaussian parameter
-5. radial distribution function
-6. structure factor
-7. incoherent scattering function
-8. bond autocorrelation function
-9. van hove correlation function
+3. mean square internal distance
+4. mean square displacement
+5. non-gaussian parameter
+6. radial distribution function (rdf)
+7. structure factor (strfac)
+8. incoherent scattering function (isfs)
+9. bond autocorrelation function (baf)
+10. van hove correlation function (vhc)
    * self part
    * distinct part

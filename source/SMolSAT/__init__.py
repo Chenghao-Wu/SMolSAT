@@ -22,5 +22,6 @@ from .van_hove_self import *
 from .mean_square_distance import *
 from .mean_distance import *
 from .radius_gyration import *
+from .mean_square_internal_distance import *
 from .scripts.lammps_log import *
 from .scripts.lammps_data import *

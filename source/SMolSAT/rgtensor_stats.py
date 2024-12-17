@@ -9,8 +9,6 @@ Created on Tue Mar 27 14:58:21 2018
 from ._SMolSAT import *
 
 import numpy as np
-import matplotlib.pyplot as plt
-import mpltex
 
 
 class rg_stats:
@@ -46,23 +44,3 @@ class rg_stats:
     def calc_rel_asphericity_dist(self,out=None,n_bin=None):
         self.analysis.calc_rel_asphericity_dist(n_bin)
         self.write_rel_asphericity_dist(out)
-
-    def plot(self,file=None):
-        
-        linestyle=mpltex.linestyles(hollow_styles=[True],lines=["-"],markers=[])
-        #create the plot object
-        fig, ax = plt.subplots(nrows=1)
-
-        ax.plot(self.data["t"],self.data['xx']+self.data['yy']+self.data['zz'],**next(linestyle),label=None,zorder=3)
-        
-        #set the plot parameters
-        ax.legend(loc="best",ncol=1)
-        #ax.set_yscale('log')
-        #ax.set_xscale('log')
-        #ax.set_xlim(90,1100)
-        #ax.set_ylim(1e-7,1e-3)
-        ax.set_xlabel(r"time")
-        ax.set_ylabel(r"Rg")
-        fig.tight_layout(pad=0.1) 
-        if file!=None:
-            fig.savefig(file)
