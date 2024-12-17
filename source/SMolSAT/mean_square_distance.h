@@ -21,14 +21,20 @@ class MeanSquared_Distance: public Analysis_Onetime
     int * n_atoms_i;
     int * n_atoms_j;
     bool is_inter;
-    
+    std::vector<double> time_m_sqr_dist_vD;
+
   public:
     MeanSquared_Distance();			//default constructor    
     MeanSquared_Distance(const MeanSquared_Distance &);		//copy constructor
     MeanSquared_Distance(std::shared_ptr<System> sys, bool is_inter=0);
     
     MeanSquared_Distance operator = (const MeanSquared_Distance &);	//assignment
-    
+
+    float* get_time_m_sqr_dist() {
+        return time_m_sqr_dist;
+    }
+
+    std::vector<double> get_time_m_sqr_dist_vD();
     //MeanSquared_Distance operator+ (const MeanSquared_Distance &);
     
     void set(std::shared_ptr<System> sys);

@@ -4,6 +4,7 @@
 #include <math.h>
 #include "mean_square_distance.h"
 #include "version.h"
+#include <pybind11/stl.h>
 
 #define PI 3.1459265
 
@@ -251,6 +252,17 @@ void MeanSquared_Distance::postprocess_list()
 
  }
 
+std::vector<double> MeanSquared_Distance::get_time_m_sqr_dist_vD() 
+{
+  int timeii;
+  
+  for(timeii=0;timeii<n_times;timeii++)
+  {
+    time_m_sqr_dist_vD.push_back(time_m_sqr_dist[timeii]);
+  }
+  return time_m_sqr_dist_vD;
+}
+
 
 void MeanSquared_Distance::run(Trajectories cl,string listname1,string listname2)
 {
@@ -270,5 +282,6 @@ void MeanSquared_Distance::run(Trajectories cl,string listname1,string listname2
     .def("run",static_cast<void (MeanSquared_Distance::*)(Trajectories, string, string )> (&MeanSquared_Distance::run))
     .def("write", static_cast<void (MeanSquared_Distance::*)(string )> (&MeanSquared_Distance::write))
     .def("write", static_cast<void (MeanSquared_Distance::*)(ofstream& )> (&MeanSquared_Distance::write))
+    .def("get", &MeanSquared_Distance::get_time_m_sqr_dist_vD)  // Remove incorrect static_cast
     ;
     }

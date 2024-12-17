@@ -38,7 +38,7 @@ rdf=SMolSAT.rdf(system=ss,nbins=500,max_length_scale=10,timescheme=0,trajs=list_
 list_.create_multibodies(name="chains",trj_list_name="chain",center_type="centroid", args="all_molecule")
 rg=SMolSAT.rg2(system=ss,trajs=list_,listname="chains",out="rg.dat",tensor=True) # argmument tensor enables calculations of gyration tensor out file is out+"tensor"
 
-# structure factor
+structure factor
 strfac=SMolSAT.structure_factor(system=ss,plane="xyz",max_length_scale=0,timescheme=0,trajs=list_,listname="all",out="strfac.dat")
 
 # chain end-to-end distance
@@ -47,6 +47,15 @@ list_.create_list(name="end_atom", args="atom_species polymer 1 19")
 end2end_distance2=SMolSAT.mean_squared_distance(system=ss,trajs=list_,listname1="head_atom",listname2="end_atom",out="end2end2.dat",in_mole=True)
 end2end_distance=SMolSAT.mean_distance(system=ss,trajs=list_,listname1="head_atom",listname2="end_atom",out="end2end.dat",in_mole=True)
 
+list_.create_list(name="monomer_index",    args="atom_species polymer 1 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19")
+# mean square internal distance
+msid=SMolSAT.mean_square_internal_distance(system=ss,
+                        trajs=list_,
+                        species='polymer',
+                        beads=[1,0,1,1,1,2,1,3,1,4,1,5,1,6,1,7,1,8,1,9,1,10,1,11,1,12,1,13,1,14,1,15,1,16,1,17,1,18,1,19],
+                        out='test_msid.dat',
+                        in_mole=True)
+                        
 # mean square displacement of segments
 msd=SMolSAT.msd(system=ss,trajs=list_,listname="all",out="msd_all.dat")
 # msd_xy=SMolSAT.msd2d(system=ss,trajs=list_,listname="all",out="msd_xy.dat",plane="xy")
@@ -59,7 +68,7 @@ msd=SMolSAT.msd(system=ss,trajs=list_,listname="chains",out="msd_chains.dat")
 
 # self-part intermediate scattering function
 # q value equals the first peak position of the structure factor
-#isfs=SMolSAT.isfs(system=ss,plane="xyz",max_length_scale=12.4385,index1=26,index2=26,timescheme=0,trajs=list_,listname="all",out="isfs.dat")
+isfs=SMolSAT.isfs(system=ss,plane="xyz",max_length_scale=12.4385,index1=26,index2=26,timescheme=0,trajs=list_,listname="all",out="isfs.dat")
 
 # non-gassian parameter
 ngp=SMolSAT.ngp(system=ss,trajs=list_,listname="all",out="ngp.dat")
@@ -80,3 +89,4 @@ baf=SMolSAT.baf(system=ss,plane="xyz",trajs=list_,listname="bonds",out="baf.dat"
 # the end-to-end vector is defined as the vector between the first and end beads of a single polymer chain
 list_.create_multibodies(name="e2e",trj_list_name="e2e",center_type="centroid", args="species_atomlist polymer 1 0 1 19")
 e2e_acf=SMolSAT.baf(system=ss,plane="xyz",trajs=list_,listname="e2e",out="e2e_acf.dat")
+
